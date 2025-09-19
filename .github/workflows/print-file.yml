@@ -1,0 +1,18 @@
+name: Print file content on push
+
+on:
+  push:
+    branches: [ "main" ]  # runs whenever you push to main branch
+
+jobs:
+  print-file:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository code
+        uses: actions/checkout@v4
+
+      - name: Print index.html content
+        run: |
+          echo "----- BEGIN index.html -----"
+          cat index.html
+          echo "----- END index.html -----"
